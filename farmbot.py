@@ -29,7 +29,7 @@ def harvester():
             pointerlocation = chest
             pointerlocation = list(pointerlocation)
             pointerlocation[0] = pointerlocation[0]+randint(-15, 15)
-            pointerlocation[1] = pointerlocation[1]+randint(-5, 15)
+            pointerlocation[1] = pointerlocation[1]+randint(10, 30)
             pointerlocation[2] = pointerlocation[2]+randint(-15, 15)
             pointerlocation[3] = pointerlocation[3]+randint(-15, 15)
             pointerlocation = tuple(pointerlocation)
@@ -594,59 +594,71 @@ class seeds:
         self.lastplanted = ""
 
     def selector(self):
+        #is it in i sor
         print(f"kalan sunflower ekim sayısı={self.sunfseed}\nkalan patates ekim sayısı={self.patseed}\nkalan pump ekim sayısı={self.pumpseed}\nkalan havuş ekim sayısı={self.carseed}")
-        if self.sunfseed > 0 and self.patseed > 0:
+        isitin=None
+        if self.sunfseed > 0 and self.patseed > 0 and isitin==None:
             slc = randint(1, 2)
             if slc == 1:
                 self.sunfseed -= 1
                 planter(slc)
                 self.lastplanted = "sunflower"
+                isitin=1
+
             if slc == 2:
                 self.patseed -= 1
                 planter(slc)
                 self.lastplanted = "patato"
+                isitin=1
 
-        if self.sunfseed > 0 and self.patseed == 0:
+        if self.sunfseed > 0 and self.patseed == 0 and isitin==None:
             slc = 1
             planter(slc)
             self.sunfseed -= 1
             self.lastplanted = "sunflower"
+            isitin=1
 
-        if self.sunfseed == 0 and self.patseed > 0:
+        if self.sunfseed == 0 and self.patseed > 0 and isitin==None:
             slc = 2
             planter(slc)
             self.patseed -= 1
             self.lastplanted = "patato"
+            isitin=1
 
-        if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed > 0 and self.carseed > 0:
+        if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed > 0 and self.carseed > 0 and isitin==None:
             slc = random.randint(1, 7)
             if slc < 7:
                 self.pumpseed -= 1
                 planter(3)
                 self.lastplanted = "pumpkin"
+                isitin=1
+
             if slc==7:
                 self.carseed -= 1
                 planter(4)
                 self.lastplanted = "carrot"
+                isitin=1
 
-        if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed == 0:
+        if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed == 0 and isitin==None:
             slc = 4
             self.carseed -= 1
             planter(slc)
             self.lastplanted = "carrot"
+            isitin=1
 
-        if self.sunfseed == 0 and self.patseed == 0 and self.carseed == 0:
+        if self.sunfseed == 0 and self.patseed == 0 and self.carseed == 0 and isitin==None:
             slc = 3
             self.carseed -= 1
             planter(slc)
             self.lastplanted = "pumpkin"
+            isitin=1
 
         elif self.sunfseed == 0 and self.patseed==0 and self.carseed == 0 and self.pumpseed == 0:
             pointerlocation = pyautogui.locateOnScreen(
                 "C:\\Users\\doruk\\Desktop\\farmbit\\closebrowser.png")
             pyautogui.moveTo(pointerlocation)
             pyautogui.click(pointerlocation)
-
+            
 
 sunfseed = int(input("enter num sunfseed"))
 patseed = int(input("enter number of pat seed"))
