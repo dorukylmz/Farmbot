@@ -29,7 +29,7 @@ def harvester():
             pointerlocation = chest
             pointerlocation = list(pointerlocation)
             pointerlocation[0] = pointerlocation[0]+randint(-15, 15)
-            pointerlocation[1] = pointerlocation[1]+randint(10, 30)
+            pointerlocation[1] = pointerlocation[1]+randint(-30, 0)
             pointerlocation[2] = pointerlocation[2]+randint(-15, 15)
             pointerlocation[3] = pointerlocation[3]+randint(-15, 15)
             pointerlocation = tuple(pointerlocation)
@@ -488,12 +488,12 @@ def planter(slc):
                 print("havuç ekiliyor")
                 y = True
                 while y == True:
+                    hole = pyautogui.locateOnScreen(
+                        "C:\\Users\\doruk\\Desktop\\farmbit\\normal_hole.png", confidence=0.8)
                     if hole == None:
                         hole = pyautogui.locateOnScreen(
                             "C:\\Users\\doruk\\Desktop\\farmbit\\middlehole.png", confidence=0.8)
 
-                    hole = pyautogui.locateOnScreen(
-                        "C:\\Users\\doruk\\Desktop\\farmbit\\normal_hole.png", confidence=0.8)
                     if hole == None:
                         y = False
                         x = False
@@ -648,7 +648,7 @@ class seeds:
 
         if self.sunfseed == 0 and self.patseed == 0 and self.carseed == 0 and isitin==None:
             slc = 3
-            self.carseed -= 1
+            self.pumpseed -= 1
             planter(slc)
             self.lastplanted = "pumpkin"
             isitin=1
@@ -658,7 +658,48 @@ class seeds:
                 "C:\\Users\\doruk\\Desktop\\farmbit\\closebrowser.png")
             pyautogui.moveTo(pointerlocation)
             pyautogui.click(pointerlocation)
-            
+
+def antiafk():
+        pointerlocation = pyautogui.locateOnScreen(
+        "C:\\Users\\doruk\\Desktop\\farmbit\\sunflowericon.png", confidence=0.8)
+        pyautogui.moveTo(pointerlocation)
+        pyautogui.click(pointerlocation)
+         # open items
+        pointerlocation = pyautogui.locateOnScreen(
+                    "C:\\Users\\doruk\\Desktop\\farmbit\\items.png", confidence=0.8)
+        pointerlocation = list(pointerlocation)
+        pointerlocation[0] = pointerlocation[0]+randint(-1, 2)
+        pointerlocation[1] = pointerlocation[1]+randint(-2, 2)
+        pointerlocation[2] = pointerlocation[2]+randint(-5, 3)
+        pointerlocation[3] = pointerlocation[3]+randint(-5, 3)
+        pointerlocation = tuple(pointerlocation)
+        pyautogui.moveTo(pointerlocation)
+        sleeptime = (random.randint(300, 500))/5000
+        time.sleep(sleeptime)
+        pyautogui.click(pointerlocation)
+        sleeptime = (random.randint(300, 999))/5000
+        time.sleep(sleeptime)
+         #close menu
+        pointerlocation = pyautogui.locateOnScreen(
+                     "C:\\Users\\doruk\\Desktop\\farmbit\\closemenu.png", confidence=0.8)
+        pointerlocation = list(pointerlocation)
+        pointerlocation[0] = pointerlocation[0]+randint(-1, 2)
+        pointerlocation[1] = pointerlocation[1]+randint(-2, 2)
+        pointerlocation[2] = pointerlocation[2]+randint(-5, 3)
+        pointerlocation[3] = pointerlocation[3]+randint(-5, 3)
+        pointerlocation = tuple(pointerlocation)
+        pyautogui.moveTo(pointerlocation)
+        sleeptime = (random.randint(300, 500))/5000
+        time.sleep(sleeptime)
+        pyautogui.click(pointerlocation)
+        sleeptime = (random.randint(300, 999))/5000
+        time.sleep(sleeptime)        
+        #geri dön
+        pointerlocation = pyautogui.locateOnScreen(
+                "C:\\Users\\doruk\\Desktop\\farmbit\\netflixicon.png", confidence=0.8)
+        pyautogui.moveTo(pointerlocation)
+        pyautogui.click(pointerlocation)        
+
 
 sunfseed = int(input("enter num sunfseed"))
 patseed = int(input("enter number of pat seed"))
@@ -691,8 +732,15 @@ while True:
         time.sleep(p)
     if seedobj.lastplanted == "carrot":
         p = randint(100, 300)+3600
+        x = (p/2)+randint(1,10)
         print(f"uyku zamanı={p}")
-        time.sleep(p)
+        time.sleep(x)
+        x=p/2
+        antiafk()
+        time.sleep(x)
+
+        
+
 
     print("\n \n")
     pointerlocation = pyautogui.locateOnScreen(
