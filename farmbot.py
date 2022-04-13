@@ -626,27 +626,27 @@ class seeds:
             isitin=1
 
         if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed > 0 and self.carseed > 0 and isitin==None:
-            slc = random.randint(1, 7)
-            if slc < 7:
+            slc = random.randint(1, 10)
+            if slc < 10:
                 self.pumpseed -= 1
                 planter(3)
                 self.lastplanted = "pumpkin"
                 isitin=1
 
-            if slc==7:
+            if slc==10:
                 self.carseed -= 1
                 planter(4)
                 self.lastplanted = "carrot"
                 isitin=1
 
-        if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed == 0 and isitin==None:
+        if self.sunfseed == 0 and self.patseed == 0 and self.pumpseed == 0 and self.carseed>0 and isitin==None:
             slc = 4
             self.carseed -= 1
             planter(slc)
             self.lastplanted = "carrot"
             isitin=1
 
-        if self.sunfseed == 0 and self.patseed == 0 and self.carseed == 0 and isitin==None:
+        if self.sunfseed == 0 and self.patseed == 0 and self.carseed == 0 and self.pumpseed>0 and isitin==None:
             slc = 3
             self.pumpseed -= 1
             planter(slc)
