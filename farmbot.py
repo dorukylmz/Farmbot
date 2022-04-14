@@ -739,9 +739,24 @@ while True:
         antiafk()
         time.sleep(x)
 
-        
+    try:
+        pointerlocation = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\notepad_unselected.png")
+        pyautogui.moveTo(pointerlocation)
+        pyautogui.click(pointerlocation)
+    except:
+        try:
+            pyautogui.press("esc")
+            time.sleep(1)
+            pyautogui.press("esc")
+            pointerlocation = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\notepad_unselected.png")
+            pyautogui.moveTo(pointerlocation)
+            pyautogui.click(pointerlocation)
+        except:
 
-
+            pass    
+        pass
     print("\n \n")
     pointerlocation = pyautogui.locateOnScreen(
         "C:\\Users\\doruk\\Desktop\\farmbit\\sunflowericon.png", confidence=0.8)
