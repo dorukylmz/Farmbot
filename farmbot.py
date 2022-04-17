@@ -5,9 +5,130 @@ import random
 from datetime import datetime
 
 
-def harvester():
+def harverstfinder():
+        sunflower = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\sunflower.png", confidence=0.7,grayscale=True)
+        pumpkin = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\normal_pumpkin .png", confidence=0.8)
+        patato = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\patato.png", confidence=0.7,grayscale=True)
+        carrot = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\patato.png", confidence=0.8)
+        if sunflower:
+            print("ayçiçeği toplanacak")
+            harvester("C:\\Users\\doruk\\Desktop\\farmbit\\sunflower.png")
+        if pumpkin:
+            print("balkabağı toplanacak")
+            harvester("C:\\Users\\doruk\\Desktop\\farmbit\\normal_pumpkin .png")
+        if patato:
+            print("patates toplanacak")
+            harvester("C:\\Users\\doruk\\Desktop\\farmbit\\patato.png")
+        if carrot:
+            print("havuç toplanacak")
+            harvester("C:\\Users\\doruk\\Desktop\\farmbit\\carrot.png")
+        else:
+            print("toplanacak bir şey yok")    
+        
+def harvester(prodctjpg):
+
     x = True
-    while x == True:
+    while x==True:
+            outthecheck = None
+            prodct = pyautogui.locateOnScreen(
+            prodctjpg, confidence=0.7,grayscale=True)
+            veggiechest = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\veggiechest.png", confidence=0.8)
+            chest = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\chest.png", confidence=0.8)
+            close_button = pyautogui.locateOnScreen(
+            "C:\\Users\\doruk\\Desktop\\farmbit\\close.png", confidence=0.8)
+            # chest
+            if chest != None:
+                pointerlocation = chest
+                pointerlocation = list(pointerlocation)
+                pointerlocation[0] = pointerlocation[0]+randint(-15, 15)
+                pointerlocation[1] = pointerlocation[1]+randint(-30, 0)
+                pointerlocation[2] = pointerlocation[2]+randint(-15, 15)
+                pointerlocation[3] = pointerlocation[3]+randint(-15, 15)
+                pointerlocation = tuple(pointerlocation)
+                pyautogui.moveTo(pointerlocation)
+                sleeptime = (random.randint(300, 500))/5000
+                time.sleep(sleeptime)
+                pyautogui.click(pointerlocation)
+                sleeptime = (random.randint(300, 999))/5000
+                chest = None
+                outthecheck = 1
+                close_button = None
+                veggiechest = None
+                prodct=None
+                time.sleep(sleeptime)
+                time.sleep(0.5)
+
+            if close_button != None:
+                pointerlocation = close_button
+                pointerlocation = list(pointerlocation)
+                pointerlocation[0] = pointerlocation[0]+randint(-15, 15)
+                pointerlocation[1] = pointerlocation[1]+randint(-15, 15)
+                pointerlocation[2] = pointerlocation[2]+randint(-15, 15)
+                pointerlocation[3] = pointerlocation[3]+randint(-15, 15)
+                pointerlocation = tuple(pointerlocation)
+                pyautogui.moveTo(pointerlocation)
+                sleeptime = (random.randint(300, 500))/5000
+                time.sleep(sleeptime)
+                pyautogui.click(pointerlocation)
+                sleeptime = (random.randint(300, 999))/5000
+                close_button = None
+                veggiechest = None
+                chest = None
+                prodct=None
+                outthecheck = 1
+                time.sleep(sleeptime)
+                time.sleep(0.5)
+
+            if veggiechest != None:
+                pointerlocation = veggiechest
+                pointerlocation = list(pointerlocation)
+                pointerlocation[0] = pointerlocation[0]+randint(-10, 10)
+                pointerlocation[1] = pointerlocation[1]+randint(-25, -5)
+                pointerlocation[2] = pointerlocation[2]+randint(-15, 15)
+                pointerlocation[3] = pointerlocation[3]+randint(-15, 15)
+                pointerlocation = tuple(pointerlocation)
+                pyautogui.moveTo(pointerlocation)
+                sleeptime = (random.randint(300, 500))/5000
+                time.sleep(sleeptime)
+                pyautogui.click(pointerlocation)
+                sleeptime = (random.randint(300, 999))/5000
+                chest = None
+                outthecheck = 1
+                close_button = None
+                veggiechest = None
+                prodct=None
+                time.sleep(sleeptime)    
+            
+            if prodct != None:
+                pointerlocation = prodct
+                pointerlocation = list(pointerlocation)
+                pointerlocation[0] = pointerlocation[0]+randint(-10, 10)
+                pointerlocation[1] = pointerlocation[1]+randint(-10, 10)
+                pointerlocation[2] = pointerlocation[2]+randint(-10, 10)
+                pointerlocation[3] = pointerlocation[3]+randint(-10, 10)
+                pointerlocation = tuple(pointerlocation)
+                pyautogui.moveTo(pointerlocation)
+                sleeptime = (random.randint(300, 500))/5000
+                time.sleep(sleeptime)
+                pyautogui.click(pointerlocation)
+                sleeptime = (random.randint(300, 999))/5000
+                time.sleep(sleeptime)
+
+            if chest== None and close_button==None and veggiechest==None and prodct==None and outthecheck==None:
+                x=False
+    now = datetime.now()
+
+    current_time = now.strftime("%H:%M:%S")
+    print(f"Toplandı {current_time}")
+    
+    
+"""      while x == True:
 
         veggiechest = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\veggiechest.png", confidence=0.8)
@@ -16,11 +137,11 @@ def harvester():
         close_button = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\close.png", confidence=0.8)
         sunflower = pyautogui.locateOnScreen(
-            "C:\\Users\\doruk\\Desktop\\farmbit\\sunflower.png", confidence=0.8,)
+            "C:\\Users\\doruk\\Desktop\\farmbit\\sunflower.png", confidence=0.7,grayscale=True)
         pumpkin = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\normal_pumpkin .png", confidence=0.8)
         patato = pyautogui.locateOnScreen(
-            "C:\\Users\\doruk\\Desktop\\farmbit\\patato.png", confidence=0.8)
+            "C:\\Users\\doruk\\Desktop\\farmbit\\patato.png", confidence=0.7,grayscale=True)
         carrot = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\carrot.png", confidence=0.8)
         outthecheck = None
@@ -49,7 +170,7 @@ def harvester():
             carrot = None
             time.sleep(sleeptime)
             time.sleep(0.5)
-
+        
         # close button
         if close_button != None:
             pointerlocation = close_button
@@ -165,11 +286,12 @@ def harvester():
             time.sleep(sleeptime)
 
         if patato == None and veggiechest == None and sunflower == None and pumpkin == None and veggiechest == None and close_button == None and chest == None and outthecheck == None:
-            x = False
+            x = False 
     now = datetime.now()
 
     current_time = now.strftime("%H:%M:%S")
     print(f"Toplandı {current_time}")
+ """
 
 
 def planter(slc):
@@ -710,7 +832,7 @@ seedobj = seeds(sunfseed=sunfseed, patseed=patseed,
                 pumpseed=pumpseed, carseed=carseed, holes=holes)
 
 while True:
-    harvester()
+    harverstfinder()
     seedobj.selector()
 
     pointerlocation = pyautogui.locateOnScreen(
@@ -719,15 +841,15 @@ while True:
     pyautogui.click(pointerlocation)
     print(f"ekildiğini söylediği={seedobj.lastplanted}")
     if seedobj.lastplanted == "sunflower":
-        p = randint(4, 20)+60
+        p = randint(4, 15)+60
         print(f"uyku zamanı={p}")
         time.sleep(p)
     if seedobj.lastplanted == "patato":
-        p = randint(15, 40)+300
+        p = randint(10, 22)+300
         print(f"uyku zamanı={p}")
         time.sleep(p)
     if seedobj.lastplanted == "pumpkin":
-        p = randint(10, 120)+1800
+        p = randint(10, 90)+1800
         print(f"uyku zamanı={p}")
         time.sleep(p)
     if seedobj.lastplanted == "carrot":
@@ -763,5 +885,5 @@ while True:
     pyautogui.moveTo(pointerlocation)
     pyautogui.click(pointerlocation)
 
-    harvester()
+    harverstfinder()
     time.sleep(2)
