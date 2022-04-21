@@ -13,7 +13,7 @@ def harverstfinder():
         patato = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\patato.png", confidence=0.7,grayscale=True)
         carrot = pyautogui.locateOnScreen(
-            "C:\\Users\\doruk\\Desktop\\farmbit\\patato.png", confidence=0.8)
+            "C:\\Users\\doruk\\Desktop\\farmbit\\carrot.png", confidence=0.8)
         if sunflower:
             print("ayçiçeği toplanacak")
             harvester("C:\\Users\\doruk\\Desktop\\farmbit\\sunflower.png")
@@ -39,7 +39,7 @@ def harvester(prodctjpg):
             veggiechest = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\veggiechest.png", confidence=0.8)
             chest = pyautogui.locateOnScreen(
-            "C:\\Users\\doruk\\Desktop\\farmbit\\chest.png", confidence=0.8)
+            "C:\\Users\\doruk\\Desktop\\farmbit\\chest.png", confidence=0.6)
             close_button = pyautogui.locateOnScreen(
             "C:\\Users\\doruk\\Desktop\\farmbit\\close.png", confidence=0.8)
             # chest
@@ -369,7 +369,7 @@ def planter(slc):
                 sleeptime = (random.randint(300, 500))/5000
                 time.sleep(sleeptime)
                 pyautogui.click(pointerlocation)
-                sleeptime = (random.randint(300, 999))/5000
+                sleeptime = (random.randint(1, 3))
                 time.sleep(sleeptime)
                 # find sunflower
                 pointerlocation = pyautogui.locateOnScreen(
@@ -471,7 +471,7 @@ def planter(slc):
                 sleeptime = (random.randint(300, 500))/5000
                 time.sleep(sleeptime)
                 pyautogui.click(pointerlocation)
-                sleeptime = (random.randint(300, 999))/5000
+                sleeptime = (random.randint(1,3))
                 time.sleep(sleeptime)
                 # find sunflower
                 pointerlocation = pyautogui.locateOnScreen(
@@ -572,7 +572,7 @@ def planter(slc):
                 sleeptime = (random.randint(300, 500))/5000
                 time.sleep(sleeptime)
                 pyautogui.click(pointerlocation)
-                sleeptime = (random.randint(300, 999))/5000
+                sleeptime = (random.randint(1,3))
                 time.sleep(sleeptime)
                 # find sunflower
                 pointerlocation = pyautogui.locateOnScreen(
@@ -673,7 +673,7 @@ def planter(slc):
                 sleeptime = (random.randint(300, 500))/5000
                 time.sleep(sleeptime)
                 pyautogui.click(pointerlocation)
-                sleeptime = (random.randint(300, 999))/5000
+                sleeptime = (random.randint(1,3))
                 time.sleep(sleeptime)
                 # find sunflower
                 pointerlocation = pyautogui.locateOnScreen(
@@ -799,7 +799,7 @@ def antiafk():
         sleeptime = (random.randint(300, 500))/5000
         time.sleep(sleeptime)
         pyautogui.click(pointerlocation)
-        sleeptime = (random.randint(300, 999))/5000
+        sleeptime = (random.randint(1,3))
         time.sleep(sleeptime)
          #close menu
         pointerlocation = pyautogui.locateOnScreen(
@@ -841,15 +841,15 @@ while True:
     pyautogui.click(pointerlocation)
     print(f"ekildiğini söylediği={seedobj.lastplanted}")
     if seedobj.lastplanted == "sunflower":
-        p = randint(4, 15)+60
+        p = randint(4, 15)+50
         print(f"uyku zamanı={p}")
         time.sleep(p)
     if seedobj.lastplanted == "patato":
-        p = randint(10, 22)+300
+        p = randint(10, 22)+290
         print(f"uyku zamanı={p}")
         time.sleep(p)
     if seedobj.lastplanted == "pumpkin":
-        p = randint(10, 90)+1800
+        p = randint(10, 70)+1800
         print(f"uyku zamanı={p}")
         time.sleep(p)
     if seedobj.lastplanted == "carrot":
