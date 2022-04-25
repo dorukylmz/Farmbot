@@ -777,7 +777,7 @@ class seeds:
 
         elif self.sunfseed == 0 and self.patseed==0 and self.carseed == 0 and self.pumpseed == 0:
             pointerlocation = pyautogui.locateOnScreen(
-                "C:\\Users\\doruk\\Desktop\\farmbit\\closebrowser.png")
+                "C:\\Users\\doruk\\Desktop\\farmbit\\save.png")
             pyautogui.moveTo(pointerlocation)
             pyautogui.click(pointerlocation)
 
