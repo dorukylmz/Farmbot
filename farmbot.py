@@ -1,5 +1,4 @@
 from random import randint, random
-from tkinter import N
 import pyautogui
 import time
 import random
@@ -34,7 +33,6 @@ def harvester(prodctjpg):
 
     mem=[]
     while True:
-            mem=[]
             outthecheck = None
             prodct = pyautogui.locateOnScreen(
             prodctjpg, confidence=0.7,grayscale=True)
@@ -55,6 +53,7 @@ def harvester(prodctjpg):
                 pyautogui.click(pointerlocation)
                 sleeptime = (random.randint(300, 999))/5000
                 while True:
+                    outthecheck=None
                     chest = pyautogui.locateOnScreen(
                     "C:\\Users\\doruk\\Desktop\\farmbit\\chest.png", confidence=0.6)
                     close_button = pyautogui.locateOnScreen(
@@ -101,15 +100,9 @@ def harvester(prodctjpg):
                         outthecheck = 1
                         time.sleep(sleeptime)
                         time.sleep(0.5)
-
-                        chest = None
-                        outthecheck = 1
-                        close_button = None
-                        veggiechest = None
-                        prodct=None
-                        time.sleep(sleeptime)    
                     
-                    if close_button==None and chest==None:
+                    if close_button==None and chest==None and outthecheck==None:
+                            outthecheck = 1
                             break
 
             
@@ -134,13 +127,12 @@ def harvester(prodctjpg):
                     letsfarm=pyautogui.locateOnScreen("C:\\Users\\doruk\\Desktop\\farmbit\\letsfarm.png")
                     pyautogui.click(letsfarm)
                     time.sleep(3)
-                    harvester(prodctjpg=prodctjpg)
                     chest = None
                     outthecheck = 1
                     close_button = None
                     veggiechest = None
                     prodct=None
-                    break
+                    return harverstfinder()
                 else:
                     break     
                   
